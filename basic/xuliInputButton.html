@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React element types</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body{
+        background-color: rgba(0,0,0,0.18);
+    }
+    #example{
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+    }
+
+    a{
+        text-decoration:none;
+    }
+
+    a,button{
+        position: relative;
+        font-size: 24px;
+        padding: 16px 18px;
+        color: #000;
+        display: inline-block;
+        min-width: 200px;
+        text-align: center;
+        cursor: pointer;
+        letter-spacing: 1px;
+        border: 3px solid ;
+        background-color: #fff;
+        border-image: linear-gradient(45deg, aqua, rgb(250,224,66)) 1;
+        transition: linear 0.5s all;
+    }
+
+    a:hover,button:hover{
+        letter-spacing: 2px;
+        background-color: rgb(8, 240, 240);
+        color: #fff;
+    }
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+	function NewButton({title, href, onClick}){
+        let DefaultComopent = 'button'
+        const props= {}
+
+        if(href){
+            DefaultComopent = 'a'
+            props.href = href
+        }
+
+        if(onClick){
+            props.onClick = onClick
+        }
+
+        return (
+            <DefaultComopent {...props}>{title}</DefaultComopent>
+        )
+    }
+
+    function Example(){
+        return (
+            <NewButton
+                title="Great option"
+                href="https://fullstack.edu.vn/"
+                onClick = {() => console.log("Thank you F8!!")}
+            />
+        )
+    }
+    ReactDOM.render(<Example />, document.getElementById("example"));
+</script>

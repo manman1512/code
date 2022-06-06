@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Post(props){
+            console.log(props.image)
+            return(
+                <div>
+                    <img 
+                        src = {props.image}
+                        alt = {props.title}
+                    />
+                    <p>{props.description}</p>
+                    
+                </div>
+            )
+        }
+
+        function App(props){
+            // console.log(props.name);
+            return(
+                <Post 
+                    title="Day la hinh anh"
+                    image="https://i0.wp.com/freakelitex.com/wp-content/uploads/2017/06/EwhXRek.jpg?fit=1920%2C1200"
+                    description="Test testtttttttttttt!"    
+                />
+            )
+        }
+
+        // ReactDOM.render(<App name="123"  />, document.getElementById('root'));
+        ReactDOM.render(<App name="123"  />, document.getElementById('root'));
+
+    </script>
+</body>
+</html>
